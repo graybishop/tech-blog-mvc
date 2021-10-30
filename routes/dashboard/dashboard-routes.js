@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    if (!req.session.loggedIn) {
+        res.redirect('/login')
+        return
+    }
     res.render('dashboard', {
         title: 'Dashboard',
         blog: [
