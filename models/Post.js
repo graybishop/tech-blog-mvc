@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Blog extends Model {}
+class Post extends Model {}
 
-Blog.init(
+Post.init(
   {
     name: {
       type: DataTypes.STRING,
@@ -15,8 +15,8 @@ Blog.init(
   },
   {
     sequelize,
-    modelName: 'blog',
+    modelName: 'post',
   }
 );
 
-module.exports = Blog;
+module.exports = Post;

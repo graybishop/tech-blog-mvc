@@ -1,17 +1,23 @@
 const express = require('express');
+const { Blog, User } = require('../../models');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     if (!req.session.loggedIn) {
         res.redirect('/login')
         return
     }
+
+    const userData = await User.findByPk(req.session.id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Blog }],
+    });
+
+    const user = userData.toJSON()
+
     res.render('dashboard', {
         title: 'Dashboard',
-        blog: [
-          { title: 'test title 1', description: `test description 1`, author: `Boba` },
-          { title: 'test title two', description: `test description two`, author: `Lewis` }
-        ],
+        ...user,
         loggedIn: req.session.loggedIn
       })
 })

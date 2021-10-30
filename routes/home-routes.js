@@ -1,15 +1,36 @@
 const express = require('express');
 const router = express.Router();
+const { Post, User } = require('../models');
 
-router.get('/', function (req, res) {
+router.get('/', async (req, res) => {
+  // Get all projects and JOIN with user data
+  const projectData = await Post.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+    ],
+  });
+
+  // Serialize data so the template can read it
+  const posts = projectData.map((Post) => Post.get({ plain: true }));
+
+  // Pass serialized data and session flag into template
   res.render('home-page', {
     title: 'The Home Page',
-    blog: [
-      { title: 'test title 1', description: `test description 1`, author: `Boba` },
-      { title: 'test title two', description: `test description two`, author: `Lewis` }
-    ],
+    posts,
     loggedIn: req.session.loggedIn
   });
+
+  // res.render('home-page', {
+  //   title: 'The Home Page',
+  //   blog: [
+  //     { title: 'test title 1', description: `test description 1`, author: `Boba` },
+  //     { title: 'test title two', description: `test description two`, author: `Lewis` }
+  //   ],
+  //   loggedIn: req.session.loggedIn
+  // });
 });
 
 router.get('/login', function (req, res) {
