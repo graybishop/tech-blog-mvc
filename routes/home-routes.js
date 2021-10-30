@@ -12,4 +12,15 @@ router.get('/', function (req, res) {
   });
 });
 
+router.get('/login', function (req, res) {
+  res.render('login', {
+    title: 'Login Page',
+    blog: [
+      { title: 'test title 1', description: `test description 1`, author: `Boba` },
+      { title: 'test title two', description: `test description two`, author: `Lewis` }
+    ],
+    loggedIn: true
+  });
+});
+
 module.exports = router;
