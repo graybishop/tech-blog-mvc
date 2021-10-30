@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
       { title: 'test title 1', description: `test description 1`, author: `Boba` },
       { title: 'test title two', description: `test description two`, author: `Lewis` }
     ],
-    loggedIn: true
+    loggedIn: req.session.loggedIn
   });
 });
 
@@ -19,7 +19,7 @@ router.get('/login', function (req, res) {
       { title: 'test title 1', description: `test description 1`, author: `Boba` },
       { title: 'test title two', description: `test description two`, author: `Lewis` }
     ],
-    loggedIn: true
+    loggedIn: req.session.loggedIn
   });
 });
 

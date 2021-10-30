@@ -15,7 +15,7 @@
       </div>
       {{#if loggedIn}}
       <div class="col d-flex justify-content-center">
-      <a href="/logout">Logout</a>
+      <button class'no-button' id="logout">Logout</button>
       </div>
       {{else}}
       <div class="col d-flex justify-content-center">
@@ -26,5 +26,9 @@
     <main class="row">
     {{{body}}}
     </main>
+      <!-- Render script for logged in users only -->
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
   </body>
 </html>
