@@ -5,6 +5,7 @@ const logger = require('morgan');
 // eslint-disable-next-line no-unused-vars
 const createError = require('http-errors');
 const indexRouter = require('./routes/index');
+const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 const session = require('express-session');
@@ -13,8 +14,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const port = process.env.PORT || '3001'
 
+let hbs = expressHandlebars.create({ helpers })
+
 // view engine setup
-app.engine('hbs', expressHandlebars())
+app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs');
 
 const sess = {
