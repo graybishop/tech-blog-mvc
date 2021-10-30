@@ -2,10 +2,10 @@ const express = require('express');
 const expressHandlebars  = require('express-handlebars');
 const path = require('path');
 const logger = require('morgan');
+// eslint-disable-next-line no-unused-vars
 const createError = require('http-errors');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/api/users');
 
 const app = express();
 const port = process.env.PORT || '3001'
