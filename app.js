@@ -39,7 +39,7 @@ app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 const init = async () => {
-  await sequelize.sync({ force: false })
+  await sequelize.sync({ alter: true })
   app.listen(port, ()=>{
     console.log(`listening on http://localhost:3001/`)
   })

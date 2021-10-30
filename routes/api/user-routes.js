@@ -2,20 +2,20 @@ const express = require('express');
 const router = express.Router();
 const { User } = require('../../models');
 
-
+// Post for registering new users
 router.post('/', async (req, res) => {
-  try {
+  // try {
     const userData = await User.create(req.body);
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.userId = userData.id;
+      req.session.loggedIn = true;
 
       res.status(200).json(userData);
     });
-  } catch (err) {
-    res.status(400).json(err);
-  }
+  // } catch (err) {
+  //   res.status(400).json(err);
+  // }
 });
 
 router.post('/login', async (req, res) => {
@@ -39,8 +39,8 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+      req.session.userId = userData.id;
+      req.session.loggedIn = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });
