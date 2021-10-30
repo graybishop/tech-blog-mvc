@@ -17,11 +17,13 @@ const port = process.env.PORT || '3001'
 
 // view engine setup
 app.engine('hbs', expressHandlebars())
-app.set('view engine', 'hbs'); //FIXME
+app.set('view engine', 'hbs');
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    maxAge: 3600000
+  },
   resave: false,
   saveUninitialized: false,
   store: new SequelizeStore({
