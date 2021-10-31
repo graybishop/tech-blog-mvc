@@ -1,3 +1,11 @@
+:root{
+  --green-sheen: #86BBBD
+}
+
 .title-row{
   background-color: var(--bs-indigo);
+}
+
+body{
+  background-color: var(--green-sheen)
 }

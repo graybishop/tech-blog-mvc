@@ -8,35 +8,37 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
-<body class="container">
-  <nav class="row fs-4 bg-dark py-4 mb-2">
-    <div class="col d-flex gap-2">
-      <div class=" d-flex justify-content-center">
-        <div class="btn btn-primary">
-          <a href="/" class="text-light text-decoration-none fw-bold">Home</a>
+<body>
+  <nav class="container-fluid bg-dark">
+    <div class="row fs-4  py-4 mb-2">
+      <div class="col d-flex gap-2">
+        <div class=" d-flex justify-content-center">
+          <div class="btn btn-primary">
+            <a href="/" class="text-light text-decoration-none fw-bold">Home</a>
+          </div>
         </div>
-      </div>
-      <div class=" d-flex justify-content-center">
-        <div class="btn btn-primary">
-          <a href="/dashboard" class="text-light text-decoration-none fw-bold">Dashboard</a>
+        <div class=" d-flex justify-content-center">
+          <div class="btn btn-primary">
+            <a href="/dashboard" class="text-light text-decoration-none fw-bold">Dashboard</a>
+          </div>
         </div>
-      </div>
-      {{#if loggedIn}}
-      <div class=" d-flex justify-content-center">
-        <div class="btn btn-warning">
-          <a href="" class="text-dark text-decoration-none fw-bold" id="logout">Logout</a>
+        {{#if loggedIn}}
+        <div class=" d-flex justify-content-center">
+          <div class="btn btn-warning">
+            <a href="" class="text-dark text-decoration-none fw-bold" id="logout">Logout</a>
+          </div>
         </div>
-      </div>
-      {{else}}
-      <div class=" d-flex justify-content-center">
-        <div class="btn btn-primary">
-          <a href="/login" class="text-light text-decoration-none fw-bold">Login</a>
+        {{else}}
+        <div class=" d-flex justify-content-center">
+          <div class="btn btn-primary">
+            <a href="/login" class="text-light text-decoration-none fw-bold">Login</a>
+          </div>
         </div>
+        {{/if}}
       </div>
-      {{/if}}
     </div>
   </nav>
-  <main>
+  <main class="container">
     {{{body}}}
   </main>
   {{! Render script for logged in users only}}
