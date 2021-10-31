@@ -4,23 +4,53 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
 
-    if (!req.session.loggedIn) {
-        res.redirect('/login')
-        return
-    }
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
 
-    const userData = await User.findByPk(req.session.userId, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
-    });
+  const userData = await User.findByPk(req.session.userId, {
+    attributes: { exclude: ['password'] },
+    include: [{ model: Post }],
+  });
 
-    const user = userData.toJSON()
+  const user = userData.toJSON();
 
-    res.render('dashboard', {
-        title: 'Dashboard',
-        ...user,
-        loggedIn: req.session.loggedIn
-      })
-})
+  res.render('dashboard', {
+    title: 'Dashboard',
+    ...user,
+    loggedIn: req.session.loggedIn
+  });
+});
 
-module.exports = router
+router.get('/edit/:id', async (req, res) => {
+
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  const postData = await Post.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: ['username'],
+      },
+    ],
+  });
+
+  const post = postData.toJSON();
+
+  if (req.session.userId !== post.userId){
+  res.redirect('/login');
+  return;
+  }
+
+  res.render('edit-post', {
+    title: 'Edit Post',
+    ...post,
+    loggedIn: req.session.loggedIn
+  });
+});
+
+module.exports = router;
