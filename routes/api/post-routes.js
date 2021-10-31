@@ -26,5 +26,30 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {  
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  try {
+    const projectData = await Post.destroy({
+      where: {
+        id: req.params.id,
+        userId: req.session.userId,
+      },
+    });
+
+    if (!projectData) {
+      res.status(404).json({ message: 'No project found with this id!' });
+      return;
+    }
+
+    res.status(200).json(projectData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
