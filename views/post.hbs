@@ -3,7 +3,7 @@
   <p>{{description}}</p>
   <p>Created by {{user.username}} on {{format_date createdAt}}</p>
 </div>
-<div class="row">
+<div class="row mb-4">
     <div class="col">
         <h4>Leave a comment</h4>
         <form class='border p-2' id='commentForm'>
@@ -14,5 +14,12 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+</div class="row">
+{{#each comments as |comment|}}
+<div class="d-flex justify-content-between d-flex align-items-end border-bottom">
+<h5 class="mb-1">{{comment.user.username}}</h5>
+<p class="mb-1">{{format_date comment.createdAt}}</p>
 </div>
+<p>{{comment.text}}</p>
+{{/each}}
 <script src="/js/comment.js"></script>
