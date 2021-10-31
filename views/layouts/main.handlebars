@@ -6,20 +6,28 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body class="container">
-    <nav class="row fs-4">
+    <nav class="row fs-4 bg-dark py-4">
       <div class="col d-flex justify-content-center">
-      <a href="/">Home</a>
+        <div class="btn btn-primary">
+          <a href="/" class="text-light text-decoration-none fw-bold">Home</a>
+        </div>
       </div>
       <div class="col d-flex justify-content-center">
-      <a href="/dashboard">Dashboard</a>
+        <div class="btn btn-primary">
+          <a href="/dashboard" class="text-light text-decoration-none fw-bold">Dashboard</a>
+        </div>
       </div>
       {{#if loggedIn}}
       <div class="col d-flex justify-content-center">
-      <a href="" id="logout">Logout</a>
+        <div class="btn btn-warning">
+          <a href="" class="text-dark text-decoration-none fw-bold" id="logout">Logout</a>
+        </div>
       </div>
       {{else}}
       <div class="col d-flex justify-content-center">
-      <a href="/login">Login</a>
+        <div class="btn btn-primary">
+          <a  href="/login" class="text-light text-decoration-none fw-bold">Login</a>
+        </div>
       </div>
       {{/if}}
     </nav>
