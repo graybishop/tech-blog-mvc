@@ -1,35 +1,44 @@
 <section class="row">
-    <div class="col">
+    <div class="col p-2">
+        <div class="border rounded shadow p-2 bg-light">
+        <div class="mb-2 title-row rounded text-light p-2">
         <h1>Login</h1>
-        <form class='border p-2' id='loginForm'>
+        </div>
+        <form id='loginForm'>
             <div class="mb-3">
-                <label for="loginUsername" class="form-label">Username</label>
+                <label for="loginUsername" class="form-label fw-bold">Username</label>
                 <input type="text" class="form-control" id="loginUsername">
             </div>
             <div class="mb-3">
-                <label for="loginPassword" class="form-label">Password</label>
+                <label for="loginPassword" class="form-label fw-bold">Password</label>
                 <input type="password" class="form-control" id="loginPassword">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        </div>
+
     </div>
-    <div class="col">
+    <div class="col p-2">
+        <div class="border rounded shadow p-2 bg-light">
+        <div class="mb-2 title-row rounded text-light p-2">
         <h1>Register</h1>
-        <form class='border p-2' id='registerForm'>
+        </div>
+        <form id='registerForm'>
             <div class="mb-3">
-                <label for="registerUsername" class="form-label">Username</label>
+                <label for="registerUsername" class="form-label fw-bold">Username</label>
                 <input type="text" class="form-control" id="registerUsername">
             </div>
             <div class="mb-3">
-                <label for="registerEmail" class="form-label">Email Address</label>
+                <label for="registerEmail" class="form-label fw-bold">Email Address</label>
                 <input type="email" class="form-control" id="registerEmail">
             </div>
             <div class="mb-3">
-                <label for="registerPassword" class="form-label">Password</label>
+                <label for="registerPassword" class="form-label fw-bold">Password</label>
                 <input type="password" class="form-control" id="registerPassword">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        </div>
     </div>
 </section>
 <script src="/js/login.js"></script>
