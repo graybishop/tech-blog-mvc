@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col">
         <h1>Edit your post:</h1>
-        <form class='border p-2 new-post-form'>
+        <form class='border p-2' id='editPostForm'>
             <div class="mb-3">
-                <label for="post-name" class="form-label">Post name:</label>
-                <input type="text" class="form-control" id="post-name" name="post-name" value="{{name}}">
+                <label for="newPostName" class="form-label">Post name:</label>
+                <input type="text" class="form-control" id="newPostName" name="newPostName" value="{{name}}">
             </div>
             <div class="mb-3">
-                <label for="post-desc" class="form-label">Post description:</label>
-                <textarea class="form-control" id="post-desc" name="post-desc">{{description}}</textarea>
+                <label for="newPostDesc" class="form-label">Post description:</label>
+                <textarea class="form-control" id="newPostDesc" name="newPostDesc">{{description}}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

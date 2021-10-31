@@ -26,6 +26,26 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {  
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+    return;
+  }
+
+  try {
+    let updatedPost = await Post.update(req.body, {
+      where: {
+        id: req.params.id,
+        userId: req.session.userId,
+      },
+    });
+
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.delete('/:id', async (req, res) => {  
   if (!req.session.loggedIn) {
     res.redirect('/login');
