@@ -15,7 +15,7 @@ const newFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            location.reload();
+            location.replace('/dashboard');
         } else {
             alert('Failed to edit post');
         }
