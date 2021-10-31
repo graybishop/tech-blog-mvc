@@ -27,6 +27,7 @@
     </div>
 </div>
 
+{{#if comments.length}}
 <div class="row rounded shadow bg-light p-2">
     <div class="col title-row rounded p-2 text-light mb-2">
         <h4 class="mb-0">Comments</h4>
@@ -39,4 +40,5 @@
     <p>{{comment.text}}</p>
     {{/each}}
 </div>
+{{/if}}
 <script src="/js/comment.js"></script>
