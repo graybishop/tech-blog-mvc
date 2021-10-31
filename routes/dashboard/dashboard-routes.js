@@ -1,16 +1,17 @@
 const express = require('express');
-const { Blog, User } = require('../../models');
+const { Post, User } = require('../../models');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
+
     if (!req.session.loggedIn) {
         res.redirect('/login')
         return
     }
 
-    const userData = await User.findByPk(req.session.id, {
+    const userData = await User.findByPk(req.session.userId, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
+      include: [{ model: Post }],
     });
 
     const user = userData.toJSON()
