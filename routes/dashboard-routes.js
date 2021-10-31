@@ -29,17 +29,22 @@ router.get('/edit/:id', async (req, res) => {
     res.redirect('/login');
     return;
   }
+  let post
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+    post = postData.toJSON();
+  } catch (error) {
+    res.status(404).send('Cannot find post with that ID')
+    return
+  }
 
-  const postData = await Post.findByPk(req.params.id, {
-    include: [
-      {
-        model: User,
-        attributes: ['username'],
-      },
-    ],
-  });
-
-  const post = postData.toJSON();
 
   if (req.session.userId !== post.userId){
   res.redirect('/login');

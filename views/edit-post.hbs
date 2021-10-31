@@ -1,17 +1,42 @@
 <div class="row">
-    <div class="col">
-        <h1>Edit your post:</h1>
-        <form class='border p-2' id='editPostForm'>
-            <div class="mb-3">
-                <label for="newPostName" class="form-label">Post name:</label>
-                <input type="text" class="form-control" id="newPostName" name="newPostName" value="{{name}}">
+    <div class="col p-2">
+        <div class="border rounded shadow p-2 bg-light">
+
+            <div class="mb-2 title-row rounded text-light p-2">
+            <h1>Edit your post:</h1>
             </div>
-            <div class="mb-3">
-                <label for="newPostDesc" class="form-label">Post description:</label>
-                <textarea class="form-control" id="newPostDesc" name="newPostDesc">{{description}}</textarea>
+            <form id='editPostForm'>
+                <div class="mb-3">
+                    <label for="newPostName" class="form-label">Post name:</label>
+                    <input type="text" class="form-control" id="newPostName" name="newPostName" value="{{name}}">
+                </div>
+                <div class="mb-3">
+                    <label for="newPostDesc" class="form-label">Post description:</label>
+                    <textarea class="form-control" id="newPostDesc" name="newPostDesc">{{description}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="col p-2">
+        <div class="border rounded shadow p-2 bg-light">
+            <div class="mb-2 title-row rounded text-light p-2">
+                <h3>Create a New Post:</h3>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+            <form class='new-post-form'>
+                <div class="mb-3">
+                    <label for="post-name" class="form-label fw-bold">Post name:</label>
+                    <input type="text" class="form-control" id="post-name" name="post-name">
+                </div>
+                <div class="mb-3">
+                    <label for="post-desc" class="form-label fw-bold">Post description:</label>
+                    <textarea class="form-control" id="post-desc" name="post-desc"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <script src="/js/edit-post.js"></script>
