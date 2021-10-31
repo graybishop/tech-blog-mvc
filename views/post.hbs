@@ -1,0 +1,18 @@
+<div class="row text-center">
+  <h2>{{name}}</h2>
+  <p>{{description}}</p>
+  <p>Created by {{user.username}} on {{format_date createdAt}}</p>
+</div>
+<div class="row">
+    <div class="col">
+        <h4>Leave a comment</h4>
+        <form class='border p-2' id='commentForm'>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comment</label>
+                <textarea  class="form-control" id="comment"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<script src="/js/comment.js"></script>
