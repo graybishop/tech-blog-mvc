@@ -37,12 +37,6 @@ router.get('/login', function (req, res) {
 
 
 router.get('/post/:id', async (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect('/login');
-    return;
-  }
-
-
   const postData = await Post.findByPk(req.params.id, {
     include: [
       {
