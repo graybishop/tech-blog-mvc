@@ -9,3 +9,7 @@
 body{
   background-color: var(--green-sheen)
 }
+
+.post-list-items{
+  background-color: #1E2019;
+}
